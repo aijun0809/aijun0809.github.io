@@ -3,87 +3,38 @@
 <head>
     <title>CoCo网址导航</title>
     <style>
-        body {
-            background-image: url('https://pomf2.lain.la/f/e6ml4fn8.JPG');
-            background-repeat: no-repeat;
-            background-size: cover;
+        img {
+            float: left;
+            margin-right: 20px;
+            max-width: 200px;
+            height: auto;
         }
-        
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 auto;
-            padding: 20px;
-            max-width: 1200px;
+        nav {
+            float: left;
+            width: calc(100% - 220px);
         }
-        
-        .nav-container {
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #fff;
-            opacity: 0.8;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #000;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
-        
         ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            list-style-type: none;
+            padding-left: 0;
         }
-        
         li {
             margin-bottom: 10px;
         }
-        
         a {
-            display: block;
-            padding: 10px;
-            text-align: center;
-            color: #333;
-            background-color: #f2f2f2;
-            border-radius: 5px;
             text-decoration: none;
+            color: #333;
             font-size: 18px;
-            font-weight: bold;
-            transition: background-color 0.3s ease-in-out;
-        }
-        
-        a:hover {
-            background-color: #ccc;
-        }
-        
-        .img-container {
-            width: 40%;
-            height: 100vh;
-            position: relative;
-        }
-        
-        img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: auto;
-            max-height: 100vh;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-container">
-            <h1>Love网址导航</h1>
-            <ul>
-                <li><a href="https://www.google.com/">Google</a></li>
+    <img src="https://pomf2.lain.la/f/e6ml4fn8.JPG" alt="logo">
+
+    <nav>
+        <h1>我的网址导航</h1>
+
+        <ul>
+            <li><a href="https://www.google.com/">Google</a></li>
                 <li><a href="https://www.baidu.com/">百度</a></li>
                 <li><a href="https://weibo.com/">微博</a></li>
                 <li><a href="https://www.torrentmac.net/">Torrentmac</a></li>
@@ -94,8 +45,8 @@
                 <li><a href="https://3.jetbra.in/">Jetbra.in</a></li>
                 <li><a href="https://chat.theb.ai/">ChatJPT</a></li>
                 <li><a href="https://www.github.com/">Github</a></li>
-            </ul>
-        </div>
-    </div>
+        </ul>
+    </nav>
+
 </body>
 </html>
