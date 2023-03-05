@@ -6,21 +6,30 @@
         body {
             background-image: url('https://pomf2.lain.la/f/e6ml4fn8.JPG');
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
         }
         
         .container {
+            display: flex;
+            flex-wrap: wrap;
             margin: 0 auto;
             padding: 20px;
-            max-width: 1000px;
+            max-width: 1200px;
+        }
+        
+        .nav-container {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
             background-color: #fff;
             opacity: 0.8;
             border-radius: 10px;
             box-shadow: 0 0 10px #000;
+            padding: 20px;
+            text-align: center;
         }
         
         h1 {
-            text-align: center;
             font-size: 36px;
             margin-bottom: 30px;
         }
@@ -51,13 +60,30 @@
         a:hover {
             background-color: #ccc;
         }
+        
+        .img-container {
+            width: 40%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: auto;
+            max-height: 100vh;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>网址导航</h1>
-        <ul>
-            <li><a href="https://www.google.com/">Google</a></li>
+        <div class="nav-container">
+            <h1>Love网址导航</h1>
+            <ul>
+                <li><a href="https://www.google.com/">Google</a></li>
                 <li><a href="https://www.baidu.com/">百度</a></li>
                 <li><a href="https://weibo.com/">微博</a></li>
                 <li><a href="https://www.torrentmac.net/">Torrentmac</a></li>
@@ -68,7 +94,11 @@
                 <li><a href="https://3.jetbra.in/">Jetbra.in</a></li>
                 <li><a href="https://chat.theb.ai/">ChatJPT</a></li>
                 <li><a href="https://www.github.com/">Github</a></li>
-        </ul>
+            </ul>
+        </div>
+        <div class="img-container">
+            <img src="left-background.jpg" alt="Left Background Image">
+        </div>
     </div>
 </body>
 </html>
