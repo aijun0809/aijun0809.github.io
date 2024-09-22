@@ -3,48 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我们闺女</title>
+    <title>我们和闺女/title>
     <style>
         body {
-            background-image: url('24dafc.jpg'); /* 背景图片 */
-            background-size: cover; /* 自动裁剪 */
+            margin: 0;
+            background-image: url('24dafc.jpg'); /* 替换为你的背景图片链接 */
+            background-size: cover;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white; /* 文字颜色 */
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            padding: 20px;
-            border-radius: 10px;
+            color: transparent;
+            font-size: 2em;
         }
         img {
-            max-width: 300px; /* 图片最大宽度 */
+            width: 300px; /* 设置图片宽度 */
             height: auto;
-            margin-right: 20px; /* 文字与图片间距 */
+            display: block;
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <img src="20240922.jpg" alt="示例图片">
-        <h1 id="message"></h1>
-    </div>
-
+    <img src="20240922.jpg" alt="扁平图片"> <!-- 替换为你的图片链接 -->
+    <div id="text"></div>
     <script>
         const startDate = new Date('2024-06-01');
         const today = new Date();
-        const timeDiff = today - startDate;
-        const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        
-        document.getElementById('message').innerText = `张淮宁已经${daysDiff}天了`;
+        const daysDiff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+        document.getElementById('text').innerText = `张淮宁已经${daysDiff}天了`;
     </script>
-
 </body>
 </html>
