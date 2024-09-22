@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的女儿</title>
+    <title>张淮宁已过去的天数</title>
     <style>
         body {
-            text-align: center;
+            background-image: url('WechatIMG3.jpg'); /* 背景图片 */
+            background-size: cover; /* 自动裁剪 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
             font-family: Arial, sans-serif;
-            margin: 50px;
+            color: white; /* 文字颜色 */
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            padding: 20px;
+            border-radius: 10px;
         }
         img {
-            max-width: 100%;
+            max-width: 300px; /* 图片最大宽度 */
             height: auto;
+            margin-right: 20px; /* 文字与图片间距 */
         }
     </style>
 </head>
 <body>
 
-    <img src="20240809.jpg" alt="淮宁">
-    <h1 id="message"></h1>
+    <div class="container">
+        <img src="20240922.jpg" alt="示例图片">
+        <h1 id="message"></h1>
+    </div>
 
     <script>
         const startDate = new Date('2024-06-01');
