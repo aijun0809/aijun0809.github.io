@@ -1,42 +1,109 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我们和闺女</title>
     <style>
-        body {
+        * {
             margin: 0;
-            background-image: url('24dafc.jpg'); /* 替换为你的背景图片链接 */
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://github.com/aijun0809/aijun0809.github.io/blob/main/24dafc.jpg'); /* 替换为你的背景图片链接 */
             background-size: cover;
-            height: 100vh;
+            background-position: center;
+            background-attachment: fixed; /* 固定背景，滚动时不移动 */
+            min-height: 100vh;
             display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: 20px; /* 给左上角一点内边距 */
+            flex-direction: column; /* 移动端垂直排列 */
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: "Microsoft YaHei", sans-serif; /* 更友好的中文字体 */
         }
-        img {
-            width: 300px; /* 设置图片宽度 */
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* 自适应换行 */
+            align-items: center;
+            justify-content: center;
+            gap: 30px; /* 图片和文字间距，比margin更现代 */
+            background-color: rgba(0, 0, 0, 0.3); /* 半透明背景增强可读性 */
+            padding: 30px;
+            border-radius: 15px; /* 圆角更柔和 */
+            backdrop-filter: blur(5px); /* 毛玻璃效果，提升质感 */
+        }
+
+        .baby-img {
+            width: clamp(200px, 80vw, 300px); /* 响应式宽度：最小200px，最大300px，适配屏幕 */
             height: auto;
-            display: block;
-            opacity: 0.7; /* 设置透明度 */
-            background-color: rgba(255, 255, 255, 0); /* 背景透明 */
+            border-radius: 10px; /* 图片圆角 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 阴影增强立体感 */
+            transition: transform 0.3s ease; /* hover动画过渡 */
         }
+
+        .baby-img:hover {
+            transform: scale(1.05); /* 鼠标悬浮轻微放大 */
+        }
+
         #text {
-            margin-left: 20px; /* 图片与文本之间的间距 */
-            font-size: 2em;
-            color: rgba(255, 255, 255, 0.9); /* 设置文本颜色 */
+            font-size: clamp(1.5em, 5vw, 2.5em); /* 响应式字体大小 */
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* 文字阴影增强可读性 */
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* 适配小屏幕（手机） */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            #text {
+                font-size: clamp(1.2em, 6vw, 2em);
+            }
         }
     </style>
 </head>
 <body>
-    <img src="20240922.jpg" alt="扁平图片"> <!-- 替换为你的图片链接 -->
-    <div id="text"></div>
+    <div class="container">
+        <img src="20240922.jpg" alt="宝宝照片" class="baby-img">
+        <div id="text"></div>
+    </div>
+
     <script>
-        const startDate = new Date('2024-06-01');
-        const today = new Date();
-        const daysDiff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-        document.getElementById('text').innerText = `张淮宁已经${daysDiff}天了`;
+        // 封装成函数，增强可读性和可维护性
+        function calculateDaysSinceBirth() {
+            try {
+                // 出生日期
+                const birthDate = new Date('2024-06-01');
+                // 获取当前时间（重置时分秒，避免当天零点前计算错误）
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                // 计算天数差（容错处理）
+                const timeDiff = today - birthDate;
+                if (timeDiff < 0) {
+                    return '即将到来';
+                }
+                
+                const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                return `张淮宁已经${daysDiff}天了`;
+            } catch (error) {
+                console.error('计算天数出错：', error);
+                return '宝贝健康成长❤️';
+            }
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('text').innerText = calculateDaysSinceBirth();
+        });
     </script>
 </body>
 </html>
