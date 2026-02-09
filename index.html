@@ -3,107 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我们和闺女</title>
+    <title>宝贝的成长时光</title>
     <style>
+        /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* 页面整体样式 */
         body {
-            background-image: url('https://github.com/aijun0809/aijun0809.github.io/blob/main/24dafc.jpg'); /* 替换为你的背景图片链接 */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* 固定背景，滚动时不移动 */
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
             min-height: 100vh;
             display: flex;
-            flex-direction: column; /* 移动端垂直排列 */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
             padding: 20px;
-            font-family: "Microsoft YaHei", sans-serif; /* 更友好的中文字体 */
         }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap; /* 自适应换行 */
-            align-items: center;
-            justify-content: center;
-            gap: 30px; /* 图片和文字间距，比margin更现代 */
-            background-color: rgba(0, 0, 0, 0.3); /* 半透明背景增强可读性 */
+        /* 背景图样式 - 全屏覆盖且自适应 */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('24dafc.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3; /* 背景图透明度，避免遮挡内容 */
+            z-index: -1;
+        }
+
+        /* 内容容器 - 自适应且居中 */
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
             padding: 30px;
-            border-radius: 15px; /* 圆角更柔和 */
-            backdrop-filter: blur(5px); /* 毛玻璃效果，提升质感 */
-        }
-
-        .baby-img {
-            width: clamp(200px, 80vw, 300px); /* 响应式宽度：最小200px，最大300px，适配屏幕 */
-            height: auto;
-            border-radius: 10px; /* 图片圆角 */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 阴影增强立体感 */
-            transition: transform 0.3s ease; /* hover动画过渡 */
-        }
-
-        .baby-img:hover {
-            transform: scale(1.05); /* 鼠标悬浮轻微放大 */
-        }
-
-        #text {
-            font-size: clamp(1.5em, 5vw, 2.5em); /* 响应式字体大小 */
-            color: #fff;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* 文字阴影增强可读性 */
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             text-align: center;
-            font-weight: bold;
         }
 
-        /* 适配小屏幕（手机） */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+        /* 宝贝照片样式 - 自适应 */
+        .baby-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 出生天数展示 */
+        .days-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fdf2f8;
+            border-radius: 12px;
+        }
+
+        .days-title {
+            font-size: 1.2rem;
+            color: #884d80;
+            margin-bottom: 10px;
+        }
+
+        .days-count {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+
+        /* 标题和祝福语 */
+        h1 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .blessing {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        /* 自适应调整 */
+        @media (max-width: 480px) {
+            .content-container {
                 padding: 20px;
             }
-            
-            #text {
-                font-size: clamp(1.2em, 6vw, 2em);
+
+            .days-count {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="20240922.jpg" alt="宝宝照片" class="baby-img">
-        <div id="text"></div>
+    <!-- 背景图 -->
+    <div class="background"></div>
+
+    <!-- 主要内容 -->
+    <div class="content-container">
+        <h1>我的小宝贝👶</h1>
+        <!-- 宝贝照片 -->
+        <img src="20240922.jpg" alt="宝贝的可爱照片" class="baby-photo">
+        
+        <!-- 出生天数计算区域 -->
+        <div class="days-container">
+            <div class="days-title">来到这个世界已经</div>
+            <div id="daysCount" class="days-count">0</div>
+            <div class="days-title">天啦</div>
+        </div>
+
+        <p class="blessing">
+            愿我的宝贝健康快乐成长，<br>
+            每一天都充满阳光和欢笑✨
+        </p>
     </div>
 
     <script>
-        // 封装成函数，增强可读性和可维护性
-        function calculateDaysSinceBirth() {
-            try {
-                // 出生日期
-                const birthDate = new Date('2024-06-01');
-                // 获取当前时间（重置时分秒，避免当天零点前计算错误）
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                
-                // 计算天数差（容错处理）
-                const timeDiff = today - birthDate;
-                if (timeDiff < 0) {
-                    return '即将到来';
-                }
-                
-                const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-                return `张淮宁已经${daysDiff}天了`;
-            } catch (error) {
-                console.error('计算天数出错：', error);
-                return '宝贝健康成长❤️';
-            }
+        // 计算出生天数的核心逻辑
+        function calculateBirthDays() {
+            // 生日：2024年6月1日 (月份从0开始，所以6月是5)
+            const birthDate = new Date(2024, 5, 1);
+            // 当前时间
+            const today = new Date();
+            
+            // 计算时间差（毫秒）
+            const timeDiff = today - birthDate;
+            // 转换为天数 (1天 = 24*60*60*1000 毫秒)
+            const daysOld = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            
+            // 更新页面显示
+            document.getElementById('daysCount').textContent = daysOld;
         }
 
-        // 页面加载完成后执行
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('text').innerText = calculateDaysSinceBirth();
-        });
+        // 页面加载时计算一次
+        calculateBirthDays();
+        // 每24小时更新一次（可选）
+        setInterval(calculateBirthDays, 24 * 60 * 60 * 1000);
     </script>
 </body>
 </html>
